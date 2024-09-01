@@ -31,7 +31,7 @@ export default function Footer() {
   };
 
   return (
-    <Box>
+    <Box display={{ xs: "block", sm: "none" }}>
       <Paper
         sx={{
           position: 'fixed',
@@ -40,10 +40,10 @@ export default function Footer() {
           right: 0,
           width: '100%',
           backgroundColor: '#333', // Dark background color
-          color: '#fff', 
+          color: '#fff',
           display: 'flex',
           justifyContent: 'center',
-          zIndex:1
+          zIndex: 1
         }}
         elevation={3}
       >
@@ -64,7 +64,7 @@ export default function Footer() {
               key={item.label}
               label={item.label}
               icon={item.icon}
-              onClick={() => handleNavigation(item.path)} 
+              onClick={() => handleNavigation(item.path)}
               sx={{
                 minWidth: 'auto',
                 color: value === item.path ? '#4caf50' : 'inherit', // Highlight active item

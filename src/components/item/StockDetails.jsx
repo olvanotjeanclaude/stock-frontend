@@ -9,7 +9,7 @@ const StockDetails = ({ stock, vendor }) => {
             <CardContent>
                 <Subtitle title="Informations sur le Stock" />
                 <Grid container spacing={2}>
-                    <Grid  size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12 }}>
                         <Alert severity='info'>
                             <Typography variant="subtitle1">
                                 En Stock
@@ -19,7 +19,7 @@ const StockDetails = ({ stock, vendor }) => {
                             </Typography>
                         </Alert>
                     </Grid>
-                    <Grid  size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <Typography variant="subtitle1" color="textSecondary">
                             Stock d'Ouverture
                         </Typography>
@@ -27,7 +27,7 @@ const StockDetails = ({ stock, vendor }) => {
                             {stock.openingStock}
                         </Typography>
                     </Grid>
-                    <Grid  size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <Typography variant="subtitle1" color="textSecondary">
                             Point de Réapprovisionnement
                         </Typography>
@@ -35,12 +35,12 @@ const StockDetails = ({ stock, vendor }) => {
                             {stock.reorderPoint}
                         </Typography>
                     </Grid>
-                    <Grid  size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                         <Typography variant="subtitle1" color="textSecondary">
                             Fournisseur
                         </Typography>
                         <Typography variant="h6" color="textPrimary">
-                            {vendor.name} 
+                            {vendor.name}
                         </Typography>
                     </Grid>
                 </Grid>

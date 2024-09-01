@@ -4,6 +4,7 @@ import { Box, Button, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react'
 import Link from 'next/link';
+import Wrapper from '@/components/common/Wrapper';
 
 export const metadata = {
   title: "Liste d'article"
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <>
+    <Wrapper>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Title title="Articles" />
         <Link href="/inventory/items/create">
@@ -21,6 +22,6 @@ export default function Page() {
         </Link>
       </Box>
       <ItemList />
-    </>
+    </Wrapper>
   )
 }

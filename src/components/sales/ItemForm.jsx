@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, Paper, TextField, Typography, Autocomplete, Box } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid2 as Grid, TextField, Typography, Autocomplete, Box } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ItemRow from './ItemRow';
@@ -123,7 +123,7 @@ export default function ItemForm({ formik }) {
                         )}
                     />
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 name="quantity"
                                 label="Quantité"
@@ -135,7 +135,7 @@ export default function ItemForm({ formik }) {
                                 helperText={errors.quantity}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 name="unitPrice"
                                 label="Prix Unitaire"
@@ -149,7 +149,7 @@ export default function ItemForm({ formik }) {
                         </Grid>
                     </Grid>
                     <Grid container spacing={2}>
-                        <Grid item xs={12}>
+                        <Grid size={{ xs: 12 }}>
                             <Typography variant="subtitle1" color="textSecondary">
                                 Montant
                             </Typography>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@mui/material';
+import { Button, Grid2 as Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import PriceForm from './PriceForm';
@@ -76,16 +76,22 @@ const ProductForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <BasicInfoForm formik={formik} />
-      <CategoryForm formik={formik} />
-      <PriceForm formik={formik} />
+    <form onSubmit={formik.handleSubmit} autoComplete='off'>
+      <Grid container spacing={1}>
+        <Grid size={{ xs: 12, md: 7 }}>
+          <BasicInfoForm formik={formik} />
+        </Grid>
+        <Grid size={{ xs: 12, md: 5 }}>
+          <CategoryForm formik={formik} />
+          <PriceForm formik={formik} />
+        </Grid>
+      </Grid>
       <StockForm formik={formik} />
       <Button
         type="submit"
         variant="contained"
         color="primary"
-        style={{ marginTop: '16px' }}
+        style={{ marginTop: '16px', float: "right" }}
       >
         Enregistrer
       </Button>

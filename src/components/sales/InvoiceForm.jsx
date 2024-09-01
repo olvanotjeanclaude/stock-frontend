@@ -62,7 +62,7 @@ const InvoiceForm = () => {
       </Typography>
       <form onSubmit={formik.handleSubmit}>
         <Grid container spacing={2}>
-          <Grid size={{ xs: 12 }}>
+          <Grid size={{ xs: 12, md: 7 }}>
             <Card>
               <CardContent>
                 <Typography>Client</Typography>
@@ -82,22 +82,11 @@ const InvoiceForm = () => {
                 />
               </CardContent>
             </Card>
-          </Grid>
-
-          <Grid size={{ xs: 12 }}>
-            <Card>
-              <CardContent>
-                <ItemForm formik={formik} />
-              </CardContent>
-            </Card>
-          </Grid>
-
-          <Grid size={{ xs: 12 }}>
-            <Card>
+            <Card sx={{ mt: 1 }}>
               <CardContent>
                 <Typography>Détails de l'article</Typography>
                 <Grid container spacing={2}>
-                  <Grid size={{ xs: 12 }}>
+                  <Grid size={{ xs: 12, lg: 6 }}>
                     <TextField
                       fullWidth
                       name="invoiceNumber"
@@ -109,7 +98,7 @@ const InvoiceForm = () => {
                       helperText={formik.touched.invoiceNumber && formik.errors.invoiceNumber}
                     />
                   </Grid>
-                  <Grid size={{ xs: 12 }}>
+                  <Grid size={{ xs: 12, lg: 6 }}>
                     <TextField
                       fullWidth
                       name="orderNumber"
@@ -121,7 +110,7 @@ const InvoiceForm = () => {
                       helperText={formik.touched.orderNumber && formik.errors.orderNumber}
                     />
                   </Grid>
-                  <Grid size={{ xs: 12 }}>
+                  <Grid size={{ xs: 12, lg: 6 }}>
                     <TextField
                       fullWidth
                       name="invoiceDate"
@@ -134,7 +123,7 @@ const InvoiceForm = () => {
                       helperText={formik.touched.invoiceDate && formik.errors.invoiceDate}
                     />
                   </Grid>
-                  <Grid size={{ xs: 12 }}>
+                  <Grid size={{ xs: 12, lg: 6 }}>
                     <TextField
                       fullWidth
                       name="dueDate"
@@ -166,12 +155,17 @@ const InvoiceForm = () => {
             </Card>
           </Grid>
 
+          <Grid size={{ xs: 12, md: 5 }}>
+            <Card>
+              <CardContent>
+                <ItemForm formik={formik} />
+              </CardContent>
+            </Card>
+            <Button sx={{ float: "right", mt: 2 }} type='submit' variant='contained'>
+              Enregistrer la Facture
+            </Button>
+          </Grid>
         </Grid>
-
-
-        <Button sx={{ float: "right", mt: 2 }} type='submit' variant='contained'>
-          Enregistrer la Facture
-        </Button>
       </form>
 
       <Snackbar

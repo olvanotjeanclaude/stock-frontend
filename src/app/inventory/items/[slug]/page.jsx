@@ -1,4 +1,5 @@
 import Title from '@/components/common/Title'
+import Wrapper from '@/components/common/Wrapper';
 import BasicInfoDetail from '@/components/item/BasicInfoDetail'
 import CategoryDetail from '@/components/item/CategoryDetail';
 import PriceDetails from '@/components/item/PriceDetails';
@@ -39,7 +40,7 @@ const product = {
 
 export default function Page({ params }) {
   return (
-    <>
+    <Wrapper>
       <Title title={`Item Detail : ${JSON.stringify(params)}`} />
 
       <Grid2 container spacing={2}>
@@ -58,6 +59,6 @@ export default function Page({ params }) {
           <CategoryDetail />
         </Grid2>
       </Grid2>
-    </>
+    </Wrapper>
   )
 }

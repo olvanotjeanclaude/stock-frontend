@@ -1,11 +1,13 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Card, CardContent } from '@mui/material';
 
-const CustomCard = ({children,...props}) => {
+const CustomCard = ({ children, ...props }) => {
   return (
-    <Box p={2} borderRadius={1} bgcolor="#fff" {...props}>
+    <Card sx={{ borderRadius: { xs: 0, sm: 'default' } }}  {...props}>
+      <CardContent>
         {children}
-    </Box>
+      </CardContent>
+    </Card>
   );
 };
 

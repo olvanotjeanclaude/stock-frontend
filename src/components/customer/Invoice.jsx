@@ -1,13 +1,15 @@
 "use client";
 
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CustomCard from '../common/CustomCard';  // Assuming you have a CustomCard component
-import { Dialog, DialogTitle, DialogContent, IconButton, Divider } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, IconButton, Divider, Card, CardContent, Chip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import InvoiceItem from './InvoiceItem';  // Import the InvoiceItem component
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import DetailRow from '../common/DetailRow';
+import { getStatusInvoiceColor } from '@/helpers/helper';
 
 const Invoice = ({
     invoiceNumber,
@@ -28,19 +30,31 @@ const Invoice = ({
     const handleClose = () => { setOpen(() => false) }
 
     return (
-        <Box sx={{ cursor: 'pointer' }}>
-            <CustomCard>
-                <Box display="flex" justifyContent="space-between">
-                    <Typography variant="h6">Invoice #{invoiceNumber}</Typography>
-                    <IconButton color="primary" onClick={handleClickOpen}>
-                        <VisibilityIcon />
-                    </IconButton>
-                </Box>
-                <Typography variant="body2" color="text.secondary">Date: {date}</Typography>
-                <Typography variant="body2" color="text.secondary">Customer: {customerName}</Typography>
-                <Typography variant="body2" color="text.secondary">Total: ${totalAmount}</Typography>
-                <Typography variant="body2" color="text.secondary">Status: {paymentStatus}</Typography>
-            </CustomCard>
+        <>
+
+            <Card onClick={handleClickOpen} sx={{cursor:"pointer"}}>
+                <CardContent>
+                    <Box display="flex" justifyContent="space-between">
+                        <Box>
+                            <Typography variant="h6">Facture #{invoiceNumber}</Typography>
+                            <Typography variant="body2" color="textSecondary">
+                                {date}
+                            </Typography>
+                        </Box>
+                        <Box>
+                            <Typography variant="h5" >${totalAmount}</Typography>
+                            <Chip
+                                label={paymentStatus}
+                                size='small'
+                            style={{
+                                backgroundColor: getStatusInvoiceColor(paymentStatus),
+                                color: 'white',
+                            }}
+                            />
+                        </Box>
+                    </Box>
+                </CardContent>
+            </Card>
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
                 <DialogTitle>
@@ -57,21 +71,20 @@ const Invoice = ({
                 </DialogTitle>
                 <DialogContent>
                     <Box>
-                        <Typography variant="body2" color="text.secondary">Date: {date}</Typography>
-                        <Typography variant="body2" color="text.secondary">Customer: {customerName}</Typography>
+                        <Typography variant="body2">Date: {date}</Typography>
                         <Divider sx={{ marginY: 1 }} />
-                        <Typography variant="h6">Items</Typography>
+                        <Typography variant="h6">Article</Typography>
+
                         {items.map((item, index) => (
-                            <InvoiceItem key={index} {...item} />
+                            <InvoiceItem key={index} item={item} />
                         ))}
-                        <Divider sx={{ marginY: 1 }} />
-                        <Typography variant="h6">Total Amount</Typography>
-                        <Typography variant="body1">${totalAmount}</Typography>
-                        <Typography variant="body2" color="text.secondary">Payment Status: {paymentStatus}</Typography>
+
+
+                        <DetailRow label="Montant total" value="100 000" mt={1} />
                     </Box>
                 </DialogContent>
             </Dialog>
-        </Box>
+        </>
     );
 };
 

@@ -1,4 +1,5 @@
 import Title from '@/components/common/Title';
+import Wrapper from '@/components/common/Wrapper';
 import CustomerDetail from '@/components/customer/CustomerDetail';
 import React from 'react';
 
@@ -23,12 +24,12 @@ const customer = {
 
 const CustomerPage = ({ params }) => {
     return (
-        <>
-        <Title title={`${customer.firstName} ${customer.surname}  ${params.id}`} />
+        <Wrapper sx={{ p: 0 }}>
+            <Title  px={2} title={`${customer.firstName} ${customer.surname}  ${params.id}`} />
             {/* {JSON.stringify(params)} */}
 
             <CustomerDetail customer={customer} />
-        </>
+        </Wrapper>
     );
 };
 

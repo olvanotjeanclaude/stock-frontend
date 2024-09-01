@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemCard from '../common/ItemCard';
 import Link from 'next/link';
+import { Box, Grid2 as Grid } from '@mui/material';
 
 const ItemList = () => {
     const mockItems = [
@@ -77,20 +78,22 @@ const ItemList = () => {
     ];
 
     return (
-        <div>
+        <Grid container spacing={1}>
             {mockItems.map((item, index) => (
-                <Link href={`/inventory/items/${index}`}>
-                <ItemCard
-                    key={index}
-                    avatarSrc={item.avatarSrc}
-                    itemName={item.itemName}
-                    category={item.category}
-                    unit={item.unit}
-                    quantity={item.quantity}
-                />
-                </Link>
+                <Grid key={index} size={{ xs: 12, md: 6, lg:4 }}>
+                    <Link href={`/inventory/items/${index}`}>
+                        <ItemCard
+                            key={index}
+                            avatarSrc={item.avatarSrc}
+                            itemName={item.itemName}
+                            category={item.category}
+                            unit={item.unit}
+                            quantity={item.quantity}
+                        />
+                    </Link>
+                </Grid>
             ))}
-        </div>
+        </Grid>
     );
 };
 

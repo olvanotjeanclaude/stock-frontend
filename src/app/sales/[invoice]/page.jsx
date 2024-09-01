@@ -1,18 +1,18 @@
 import Title from '@/components/common/Title'
 import React from 'react'
-import InvoiceForm from '@/components/sales/InvoiceForm';
+import PaymentDetail from '@/components/sales/PaymentDetail';
 import Wrapper from '@/components/common/Wrapper';
 
 export const metadata = {
-  title: "Nouvelle Vente"
+  title: "Détails du paiement"
 };
 
 export default function Page() {
   return (
-    <Wrapper>
-      <Title title="Nouvelle Vente" />
+    <Wrapper sx={{ p: 0 }}>
+      <Title px={2} title="Détails du paiement" />
 
-      <InvoiceForm />
+      <PaymentDetail />
     </Wrapper>
   )
 }

@@ -2,10 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { List, ListItem, ListItemIcon, ListItemText, Divider, Box } from '@mui/material';
 import menuItems from './menuItems';
+import { sidebarWith } from '@/helpers/constant';
 
 function Sidebar() {
   return (
-    <Box sx={{ width: 240, bgcolor: '#030B15', height: '100vh', position: 'fixed', top: 0, left: 0 }}>
+    <Box sx={{
+      display: { xs: "none", sm: "block" },
+      width: sidebarWith,
+      zIndex: 1,
+      bgcolor: '#030B15',
+      height: '100vh',
+      position: 'fixed',
+      top: 0,
+      left: 0
+    }}>
       <List>
         {menuItems.map((item, index) => (
           <React.Fragment key={index}>

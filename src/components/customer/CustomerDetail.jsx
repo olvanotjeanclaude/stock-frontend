@@ -7,11 +7,13 @@ import SocialMedia from './SocialMedia';
 import Other from './Other';
 import ContactPersons from './ContactPersons';
 import Comments from './Comments';
-import { Box, Stack, Tab, Tabs } from '@mui/material';
+import { Box, Button, Grid2 as Grid, Stack, Tab, Tabs } from '@mui/material';
 import Invoice from './Invoice';
-import CustomCard from '../common/CustomCard';
 import { a11yProps } from '@/helpers/helper';
 import TabPanel from '../common/TabPanel';
+import Subtitle from '../common/Subtitle';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const CustomerDetail = ({ customer }) => {
 
@@ -72,20 +74,39 @@ const CustomerDetail = ({ customer }) => {
     ];
 
     return (
-        <Stack gap={2}>
-            <BasicInfo
-                avatarSrc={avatarSrc}
-                firstName={firstName}
-                surname={surname}
-                telephone={telephone}
-                email={email}
-            />
+        <>
+            <Box display="flex" p={1} gap={1} flexWrap="wrap" justifyContent="center" mb={2}>
+                <Button variant="contained" color="error" startIcon={<DeleteIcon />}>
+                    Supprimer
+                </Button>
 
-            <BillingAddress address={billingAddress} />
+                <Button variant="contained" color="info" startIcon={<EditIcon />}>
+                    Modifier
+                </Button>
+            </Box>
 
-            <Comments comments={comments} />
+            <Grid container spacing={1}>
+                <Grid size={{ xs: 12 }}>
+                    <BasicInfo
+                        avatarSrc={avatarSrc}
+                        firstName={firstName}
+                        surname={surname}
+                        telephone={telephone}
+                        email={email}
+                    />
+                </Grid>
 
-            <Box>
+                <Grid size={{ xs: 12 }}>
+                    <BillingAddress address={billingAddress} />
+                </Grid>
+
+                <Grid size={{ xs: 12 }}>
+                    <Comments comments={comments} />
+                </Grid>
+            </Grid>
+
+
+            <Box display="none">
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -113,21 +134,25 @@ const CustomerDetail = ({ customer }) => {
             </Box>
 
 
-            <Stack gap={1}>
-                {invoices.map((invoice) => (
-                    <Invoice
-                        key={invoice.invoiceNumber}
-                        invoiceNumber={invoice.invoiceNumber}
-                        date={invoice.date}
-                        customerName={invoice.customerName}
-                        items={invoice.items}
-                        totalAmount={invoice.totalAmount}
-                        paymentStatus={invoice.paymentStatus}
-                    />
-                ))}
-            </Stack>
+            <Subtitle ml={2} mt={2} title="Factures" />
 
-        </Stack>
+            <Grid container spacing={{ xs: 0, sm: 2 }}>
+                {invoices.map((invoice) => (
+                    <Grid size={{ xs: 12, sm: 6, lg: 4 }} key={invoice.invoiceNumber}>
+                        <Invoice
+                            key={invoice.invoiceNumber}
+                            invoiceNumber={invoice.invoiceNumber}
+                            date={invoice.date}
+                            customerName={invoice.customerName}
+                            items={invoice.items}
+                            totalAmount={invoice.totalAmount}
+                            paymentStatus={invoice.paymentStatus}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
+
+        </>
     );
 };
 

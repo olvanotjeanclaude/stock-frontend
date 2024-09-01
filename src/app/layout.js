@@ -5,8 +5,9 @@ import '@fontsource/roboto/700.css';
 import "./globals.css";
 import ThemeProvider from "@/providers/ThemeProvider";
 import Sidebar from "@/components/sidebar/Sidebar";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import Footer from '@/components/common/Footer';
+import { sidebarWith } from '@/helpers/constant';
 
 
 export const metadata = {
@@ -19,13 +20,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body >
         <ThemeProvider>
-          <div style={{ display: 'flex' }}>
-            {/* <Sidebar /> */}
-            <Container sx={{pb:"7rem",pt:"1rem"}}>
+          <Box display="flex">
+            <Sidebar />
+            <Box pb="7rem" pt={2} ml={{xs:"auto",sm:`${sidebarWith}px`}} width="100%">
               {children}
               <Footer />
-            </Container>
-          </div>
+            </Box>
+          </Box>
         </ThemeProvider>
       </body>
     </html>

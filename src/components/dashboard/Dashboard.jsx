@@ -33,7 +33,7 @@ export default function Dashboard() {
         <Grid2 container spacing={1}>
           {
             cards.map((card, index) => (
-              <Grid2 size={{ xs: 12 }} key={index}>
+              <Grid2 size={{ xs: 12, sm:6 }} key={index}>
                 <Card>
                   <CardContent>
                     <Box display="flex" justifyContent="space-between" alignItems="center">

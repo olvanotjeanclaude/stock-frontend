@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomerCard from './CustomerCard';
 import Link from 'next/link';
+import { Grid2 as Grid } from '@mui/material';
 
 const CustomerList = () => {
   const mockCustomers = [
@@ -26,20 +27,22 @@ const CustomerList = () => {
   ];
 
   return (
-    <div>
+    <Grid container spacing={1}>
       {mockCustomers.map((customer, index) => (
-        <Link key={index} href={`/customers/${customer.id}`} style={{textDecoration:"none"}}>
-          <CustomerCard
-            avatarSrc={customer.avatarSrc}
-            firstName={customer.firstName}
-            surname={customer.surname}
-            email={customer.email}
-            phone={customer.phone}
-            address={customer.address}
-          />
-        </Link>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Link key={index} href={`/customers/${customer.id}`} style={{ textDecoration: "none" }}>
+            <CustomerCard
+              avatarSrc={customer.avatarSrc}
+              firstName={customer.firstName}
+              surname={customer.surname}
+              email={customer.email}
+              phone={customer.phone}
+              address={customer.address}
+            />
+          </Link>
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 

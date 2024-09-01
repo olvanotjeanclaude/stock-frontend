@@ -8,3 +8,12 @@ body {
   color: #030B15; /* Optional: Set a default text color to contrast with the background */
   min-height: 100vh;
 }
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.MuiCardContent-root{
+  padding-bottom: 16px!important;
+}

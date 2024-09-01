@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemCard from '../common/ItemCard';
+import Link from 'next/link';
 
 const ItemList = () => {
     const mockItems = [
@@ -78,6 +79,7 @@ const ItemList = () => {
     return (
         <div>
             {mockItems.map((item, index) => (
+                <Link href={`/inventory/items/${index}`}>
                 <ItemCard
                     key={index}
                     avatarSrc={item.avatarSrc}
@@ -86,6 +88,7 @@ const ItemList = () => {
                     unit={item.unit}
                     quantity={item.quantity}
                 />
+                </Link>
             ))}
         </div>
     );

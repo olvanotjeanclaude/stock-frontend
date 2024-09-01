@@ -33,6 +33,7 @@ const ProductForm = () => {
         openingStock: '',
         reorderPoint: '',
         openingStockRatePerUnit: '',
+        vendor: '', // Added vendor field
       },
       category: ""
     },

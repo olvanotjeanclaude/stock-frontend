@@ -67,7 +67,7 @@ const theme = createTheme({
     MuiFormControl: {
       defaultProps: {
         fullWidth: true,   // Set default width to full
-        margin: 'dense',  // Set default margin to normal
+        margin: 'normal',  // Set default margin to normal
         variant: 'outlined',  // Use outlined variant by default
         size: 'small',     // Set default size to small
       },
@@ -85,6 +85,11 @@ const theme = createTheme({
         },
       },
     },
+    MuiCard:{
+      defaultProps:{
+        variant: "outlined"
+      }
+    }
   },
 });
 

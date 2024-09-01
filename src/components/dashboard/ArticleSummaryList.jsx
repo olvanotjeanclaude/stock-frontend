@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from '@mui/material/Paper';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -13,6 +12,7 @@ import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import { blue, green, red } from '@mui/material/colors';
+import { Card, CardContent } from '@mui/material';
 
 const items = [
   {
@@ -23,7 +23,7 @@ const items = [
   },
   {
     label: 'Tous les articles',
-    count: 10,
+    count: 34,
     avatarColor: blue[500],
     icon: <PendingActionsIcon />,
   },
@@ -37,38 +37,40 @@ const items = [
 
 const ArticleSummaryList = () => {
   return (
-    <Box bgcolor="#fff">
-      <List>
-        {items.map((item, index) => (
-          <ListItem
-            key={index}
-            secondaryAction={
-              <IconButton edge="end" aria-label="delete">
-                <KeyboardArrowRightIcon />
-              </IconButton>
-            }
-          >
-            <ListItemAvatar>
-              <Avatar
-                sx={{
-                  background: item.avatarColor,
-                  width: 40,  // Reduced size
-                  height: 40, // Reduced size
-                }}
-              >
-                {item.icon}
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText>
-              <Box display="flex" justifyContent="space-between">
-                <Typography>{item.label}</Typography>
-                <Typography>{item.count}</Typography>
-              </Box>
-            </ListItemText>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+    <Card >
+      <CardContent sx={{ px: 0 }}>
+        <List>
+          {items.map((item, index) => (
+            <ListItem
+              key={index}
+              secondaryAction={
+                <IconButton edge="end" aria-label="delete">
+                  <KeyboardArrowRightIcon />
+                </IconButton>
+              }
+            >
+              <ListItemAvatar>
+                <Avatar
+                  sx={{
+                    background: item.avatarColor,
+                    width: 40,  // Reduced size
+                    height: 40, // Reduced size
+                  }}
+                >
+                  {item.icon}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText>
+                <Box display="flex" justifyContent="space-between">
+                  <Typography>{item.label}</Typography>
+                  <Typography>{item.count}</Typography>
+                </Box>
+              </ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      </CardContent>
+    </Card>
   );
 };
 

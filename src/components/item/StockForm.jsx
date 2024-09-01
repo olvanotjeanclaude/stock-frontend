@@ -1,11 +1,31 @@
-import { TextField, Typography, Paper } from '@mui/material';
+import { TextField, Typography, Paper, MenuItem } from '@mui/material';
 
-export default function StockForm({formik}) {
+export default function StockForm({ formik }) {
     return (
         <Paper style={{ padding: '16px', marginBottom: '16px' }}>
             <Typography variant="h6" gutterBottom>
                 Informations de stock
             </Typography>
+            
+            {/* Vendor Select */}
+            <TextField
+                select
+                name="stock.vendor"
+                label="Fournisseur *"
+                value={formik.values.stock.vendor}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.stock?.vendor && Boolean(formik.errors.stock?.vendor)}
+                helperText={formik.touched.stock?.vendor && formik.errors.stock?.vendor}
+                fullWidth
+                margin="normal"
+            >
+                <MenuItem value="Vendor1">Fournisseur 1</MenuItem>
+                <MenuItem value="Vendor2">Fournisseur 2</MenuItem>
+                <MenuItem value="Vendor3">Fournisseur 3</MenuItem>
+            </TextField>
+
+            {/* Opening Stock */}
             <TextField
                 name="stock.openingStock"
                 label="Quantité de stock d’ouverture *"
@@ -17,10 +37,9 @@ export default function StockForm({formik}) {
                 helperText={formik.touched.stock?.openingStock && formik.errors.stock?.openingStock}
                 fullWidth
                 margin="normal"
-                variant="outlined"
-                size="small"
-                InputLabelProps={{ shrink: true }}
             />
+
+            {/* Reorder Point */}
             <TextField
                 name="stock.reorderPoint"
                 label="Point de commande"
@@ -32,10 +51,9 @@ export default function StockForm({formik}) {
                 helperText={formik.touched.stock?.reorderPoint && formik.errors.stock?.reorderPoint}
                 fullWidth
                 margin="normal"
-                variant="outlined"
-                size="small"
-                InputLabelProps={{ shrink: true }}
             />
+
+            {/* Opening Stock Rate Per Unit */}
             <TextField
                 name="stock.openingStockRatePerUnit"
                 label="Taux de stock d’ouverture par unité"
@@ -47,10 +65,7 @@ export default function StockForm({formik}) {
                 helperText={formik.touched.stock?.openingStockRatePerUnit && formik.errors.stock?.openingStockRatePerUnit}
                 fullWidth
                 margin="normal"
-                variant="outlined"
-                size="small"
-                InputLabelProps={{ shrink: true }}
             />
         </Paper>
-    )
+    );
 }

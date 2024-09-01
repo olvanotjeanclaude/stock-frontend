@@ -40,9 +40,10 @@ export default function Footer() {
           right: 0,
           width: '100%',
           backgroundColor: '#333', // Dark background color
-          color: '#fff', // White text color
+          color: '#fff', 
           display: 'flex',
           justifyContent: 'center',
+          zIndex:1
         }}
         elevation={3}
       >

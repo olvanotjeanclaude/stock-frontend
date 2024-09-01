@@ -106,7 +106,7 @@ export default function PriceForm({ formik }) {
                     </FormControl>
                 </Box>
                 {formik.touched.price?.costPrice?.value && formik.errors.price?.costPrice?.value && (
-                    <small style={{color: red[500]}} marginTop={1}>
+                    <small style={{color: red[500]}}>
                         {formik.errors.price?.costPrice?.value}
                     </small>
                 )}

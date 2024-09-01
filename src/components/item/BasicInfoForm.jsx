@@ -25,10 +25,6 @@ export default function BasicInfoForm({ formik }) {
         onBlur={formik.handleBlur}
         error={formik.touched.basic?.name && Boolean(formik.errors.basic?.name)}
         helperText={formik.touched.basic?.name && formik.errors.basic?.name}
-        fullWidth
-        margin="normal"
-        variant="outlined"
-        size="small"
       />
       <TextField
         name="basic.sku"
@@ -38,17 +34,8 @@ export default function BasicInfoForm({ formik }) {
         onBlur={formik.handleBlur}
         error={formik.touched.basic?.sku && Boolean(formik.errors.basic?.sku)}
         helperText={formik.touched.basic?.sku && formik.errors.basic?.sku}
-        fullWidth
-        margin="normal"
-        variant="outlined"
-        size="small"
       />
-      <FormControl
-        margin="normal"
-        variant="outlined"
-        size="small"
-        fullWidth
-      >
+      <FormControl>
         <InputLabel id="unit-label">Unité *</InputLabel>
         <Select
           labelId="unit-label"
@@ -94,10 +81,6 @@ export default function BasicInfoForm({ formik }) {
         onBlur={formik.handleBlur}
         error={formik.touched.basic?.description && Boolean(formik.errors.basic?.description)}
         helperText={formik.touched.basic?.description && formik.errors.basic?.description}
-        fullWidth
-        margin="normal"
-        variant="outlined"
-        size="small"
       />
     </Paper>
   )
